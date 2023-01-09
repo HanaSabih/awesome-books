@@ -1,5 +1,4 @@
 /* eslint-disable max-classes-per-file */
-
 const form = document.querySelector('#form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
@@ -14,9 +13,10 @@ class Storage {
   }
 
   static getStorage() {
-    const storage = localStorage.getItem('book') === null
-      ? []
-      : JSON.parse(localStorage.getItem('book'));
+    const storage =
+      localStorage.getItem('book') === null
+        ? []
+        : JSON.parse(localStorage.getItem('book'));
     return storage;
   }
 }
@@ -43,7 +43,7 @@ class Card {
               <p class="card-text">${item.author}</p>
               <button class="btn btn-secondary remove w-25" data-id="${item.id}">remove</button>
               <hr/>
-            </div>`,
+            </div>`
     );
     cardsContainer.innerHTML = displayBook.join(' ');
   }
