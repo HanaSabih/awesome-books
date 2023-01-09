@@ -1,19 +1,22 @@
-const form = document.querySelector("#form");
-const bookTitle = document.querySelector("#title");
-const bookAuthor = document.querySelector("#author");
-const cardsContainer = document.querySelector("#cards");
+/* eslint-disable max-classes-per-file */
+
+const form = document.querySelector('#form');
+const bookTitle = document.querySelector('#title');
+const bookAuthor = document.querySelector('#author');
+const cardsContainer = document.querySelector('#cards');
+
+const warningLabel = document.querySelector('.warningLabel');
 
 class Storage {
   static addTodStorage(arrBooks) {
-    const storage = localStorage.setItem("book", JSON.stringify(arrBooks));
+    const storage = localStorage.setItem('book', JSON.stringify(arrBooks));
     return storage;
   }
 
   static getStorage() {
-    const storage =
-      localStorage.getItem("book") === null
-        ? []
-        : JSON.parse(localStorage.getItem("book"));
+    const storage = localStorage.getItem('book') === null
+      ? []
+      : JSON.parse(localStorage.getItem('book'));
     return storage;
   }
 }
@@ -40,19 +43,19 @@ class Card {
               <p class="card-text">${item.author}</p>
               <button class="btn btn-secondary remove w-25" data-id="${item.id}">remove</button>
               <hr/>
-            </div>`
+            </div>`,
     );
-    cardsContainer.innerHTML = displayBook.join(" ");
+    cardsContainer.innerHTML = displayBook.join(' ');
   }
 
   static clearInputs() {
-    bookTitle.value = "";
-    bookAuthor.value = "";
+    bookTitle.value = '';
+    bookAuthor.value = '';
   }
 
   static removeBook() {
-    cardsContainer.addEventListener("click", (e) => {
-      if (e.target.classList.contains("remove")) {
+    cardsContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove')) {
         e.target.parentElement.remove();
       }
       const bookId = e.target.dataset.id;
@@ -66,11 +69,12 @@ class Card {
   }
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (bookTitle.value === "" || bookAuthor.value === "") {
-    alert("Please enter the title and the author name");
+  if (bookTitle.value === '' || bookAuthor.value === '') {
+    warningLabel.classList.remove('d-none');
   } else {
+    warningLabel.classList.add('d-none');
     const book = new Books(id + 1, bookTitle.value, bookAuthor.value);
 
     arrBooks = [...arrBooks, book];
@@ -82,7 +86,7 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('DOMContentLoaded', () => {
   Card.displayBook();
   // remove from the dom
   Card.removeBook();
