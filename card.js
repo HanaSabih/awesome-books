@@ -5,12 +5,10 @@ class Card {
   static displayBook() {
     const displayBook = arrBooks.map(
       (item) => `
-          <div class="card border-0">
-                <h5 class="card-title">${item.title}</h5>
-                <p class="card-text">${item.author}</p>
-                <button class="btn btn-secondary remove w-50" data-id="${item.id}">remove</button>
-                <hr/>
-              </div>`,
+      <tr id="tr${item.id}">
+      <td class="text-start"><span>"${item.title}"  By  ${item.author}</span></td>
+      <td class="text-end"><button class="btn btn-secondary remove " data-id="${item.id}">remove</button></td>
+    </tr>`,
     );
     cardsContainer.innerHTML = displayBook.join(' ');
   }
@@ -22,10 +20,11 @@ class Card {
 
   static removeBook() {
     cardsContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains('remove')) {
-        e.target.parentElement.remove();
-      }
       const bookId = e.target.dataset.id;
+      if (e.target.classList.contains('remove')) {
+        document.querySelector(`#tr${bookId}`).remove();
+      }
+
       Card.removeBookFromArr(bookId);
     });
   }

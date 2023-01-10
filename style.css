@@ -1,3 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
+.cards {
+  max-height: 50vh;
+}
