@@ -1,24 +1,23 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
-const form = document.querySelector("#form");
-const bookTitle = document.querySelector("#title");
-const bookAuthor = document.querySelector("#author");
-const cardsContainer = document.querySelector("#cards");
+const form = document.querySelector('#form');
+const bookTitle = document.querySelector('#title');
+const bookAuthor = document.querySelector('#author');
+const cardsContainer = document.querySelector('#cards');
 
-const warningLabel = document.querySelector(".warningLabel");
+const warningLabel = document.querySelector('.warningLabel');
 
 class Storage {
   static addTodStorage(arrBooks) {
-    const storage = localStorage.setItem("book", JSON.stringify(arrBooks));
+    const storage = localStorage.setItem('book', JSON.stringify(arrBooks));
     return storage;
   }
 
   static getStorage() {
-    const storage =
-      localStorage.getItem("book") === null
-        ? []
-        : JSON.parse(localStorage.getItem("book"));
+    const storage = localStorage.getItem('book') === null
+      ? []
+      : JSON.parse(localStorage.getItem('book'));
     return storage;
   }
 }
@@ -26,12 +25,12 @@ class Storage {
 let arrBooks = Storage.getStorage();
 let id = arrBooks.length + 1;
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (bookTitle.value === "" || bookAuthor.value === "") {
-    warningLabel.classList.remove("d-none");
+  if (bookTitle.value === '' || bookAuthor.value === '') {
+    warningLabel.classList.remove('d-none');
   } else {
-    warningLabel.classList.add("d-none");
+    warningLabel.classList.add('d-none');
     const book = new Books(id, bookTitle.value, bookAuthor.value);
     id += 1;
 
@@ -44,7 +43,7 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('DOMContentLoaded', () => {
   Card.displayBook();
   // remove from the dom
   Card.removeBook();
