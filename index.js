@@ -11,6 +11,9 @@ const navbar = document.querySelector('.navbar-nav');
 const booksList = document.querySelector('.books-list');
 const addNew = document.querySelector('.add-new');
 const contact = document.querySelector('.contact');
+const navlist = document.querySelector('.navlist');
+const navadd = document.querySelector('.navadd');
+const navcontact = document.querySelector('.navcontact');
 
 const d = new Date();
 
@@ -57,17 +60,17 @@ window.addEventListener('DOMContentLoaded', () => {
   Card.removeBook();
 });
 
-navbar.children[0].onclick = () => {
+navlist.onclick = () => {
   booksList.classList.remove('d-none');
   addNew.classList.add('d-none');
   contact.classList.add('d-none');
 };
-navbar.children[1].onclick = () => {
+navadd.onclick = () => {
   booksList.classList.add('d-none');
   addNew.classList.remove('d-none');
   contact.classList.add('d-none');
 };
-navbar.children[2].onclick = () => {
+navcontact.onclick = () => {
   booksList.classList.add('d-none');
   addNew.classList.add('d-none');
   contact.classList.remove('d-none');
