@@ -1,12 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-
+const bodyCont = document.body;
 const form = document.querySelector('#form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const cardsContainer = document.querySelector('#cards');
-
+const tableContainer = document.querySelector('.cards');
 const warningLabel = document.querySelector('.warningLabel');
+const navbar = document.querySelector('.navbar-nav');
+const booksList = document.querySelector('.books-list');
+const addNew = document.querySelector('.add-new');
+const contact = document.querySelector('.contact');
+
+const d = new Date();
+
+document.querySelector('.date-display').innerHTML = d.toDateString();
 
 class Storage {
   static addTodStorage(arrBooks) {
@@ -48,3 +56,19 @@ window.addEventListener('DOMContentLoaded', () => {
   // remove from the dom
   Card.removeBook();
 });
+
+navbar.children[0].onclick = () => {
+  booksList.classList.remove('d-none');
+  addNew.classList.add('d-none');
+  contact.classList.add('d-none');
+};
+navbar.children[1].onclick = () => {
+  booksList.classList.add('d-none');
+  addNew.classList.remove('d-none');
+  contact.classList.add('d-none');
+};
+navbar.children[2].onclick = () => {
+  booksList.classList.add('d-none');
+  addNew.classList.add('d-none');
+  contact.classList.remove('d-none');
+};

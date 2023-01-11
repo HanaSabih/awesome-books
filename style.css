@@ -2,6 +2,16 @@
   box-sizing: border-box;
 }
 
-.cards {
-  max-height: 50vh;
+@media screen and (min-width: 768px) {
+  body {
+    height: 100vh;
+  }
+
+  .cards {
+    max-height: 60vh;
+  }
+
+  #form {
+    width: 50%;
+  }
 }
