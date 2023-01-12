@@ -14,4 +14,8 @@
   #form {
     width: 50%;
   }
+
+  .text-start span {
+    font-size: 1.3rem;
+  }
 }
