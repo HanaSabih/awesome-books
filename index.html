@@ -15,43 +15,102 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container text-center w-50">
-      <h1>All Awesome Books</h1>
-      <div class="cards overflow-auto">
-        <table class="table table-dark table-striped table-hover mb-0">
-          <tbody id="cards"></tbody>
-        </table>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid px-lg-5">
+          <a class="navbar-brand" href="#">Awesome Books</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNavAltMarkup"
+          >
+            <div class="navbar-nav">
+              <a class="nav-link navlist" href="#">Book List</a>
+              <a class="nav-link ps-lg-5 navadd" href="#">Add new</a>
+              <a class="nav-link ps-lg-5 navcontact" href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- date -->
+    <div class="container-fluid px-lg-5 text-end py-lg-3">
+      <span class="date-display fw-bolder"></span>
+    </div>
+    <!-- books-list -->
+    <section class="books-list">
+      <div class="container-fluid text-center px-lg-5">
+        <h1>All Awesome Books</h1>
+        <div class="cards overflow-auto py-lg-3">
+          <table class="table table-dark table-striped table-hover mb-0">
+            <tbody id="cards"></tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <hr class="w-25 mx-auto" />
-    <div class="container text-center w-25 mt-3 p-3">
-      <h2>Add a new book</h2>
-      <form id="form">
-        <div class="mb-3">
-          <label for="title" class="form-label d-none">title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            placeholder="title"
-          />
+    </section>
+    <!-- Add book form -->
+    <section class="add-new d-none">
+      <div class="container-fluid text-center px-lg-5">
+        <h1>Add a new book</h1>
+        <form id="form" class="mx-auto my-lg-5">
+          <div class="mb-3">
+            <label for="title" class="form-label d-none">title</label>
+            <input
+              type="text"
+              class="form-control border-dark"
+              id="title"
+              placeholder="title"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label d-none">author</label>
+            <input
+              type="text"
+              class="form-control border-dark"
+              id="author"
+              placeholder="author"
+            />
+          </div>
+          <!-- change -->
+          <label class="warningLabel d-none"
+            >Please enter the title and the author name</label
+          >
+          <button type="submit" class="btn btn-dark float-end w-25">Add</button>
+        </form>
+      </div>
+    </section>
+    <!-- Contact info -->
+    <section class="contact d-none">
+      <div class="container-fluid px-lg-5 text-center">
+        <h1>Contact information</h1>
+        <div class="container-fluid text-start text-center fs-4 pt-lg-3">
+          <p>
+            Do you have any questions or you just want to say "Hello"?<br />You
+            can reach out to us!
+          </p>
+          <p>Our e-mail: awesomebooks@gmail.com</p>
+          <p>Our phone number: 0043586534422</p>
+          <p>Our address: Street name 22, 84503 City, country</p>
         </div>
-        <div class="mb-3">
-          <label for="author" class="form-label d-none">author</label>
-          <input
-            type="text"
-            class="form-control"
-            id="author"
-            placeholder="author"
-          />
-        </div>
-        <!-- change -->
-        <label class="warningLabel d-none"
-          >Please enter the title and the author name</label
-        >
-        <button type="submit" class="btn btn-secondary float-end">Add</button>
-      </form>
-    </div>
+      </div>
+    </section>
+
+    <footer
+      class="navbar-dark bg-dark text-light py-3 px-lg-5 px-3 fixed-bottom bottom-0"
+    >
+      <h5>@copyright Awesome Books</h5>
+    </footer>
+
     <script src="books.js"></script>
     <script src="card.js"></script>
     <script src="index.js"></script>
